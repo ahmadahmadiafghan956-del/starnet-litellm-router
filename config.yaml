@@ -1,0 +1,21 @@
+model_list:
+  - model_name: starnet-router
+    litellm_params:
+      model: groq/openai/gpt-oss-20b
+      api_key: os.environ/GROQ_API_KEY
+
+  - model_name: starnet-router
+    litellm_params:
+      model: gemini/gemini-3.5-flash
+      api_key: os.environ/GEMINI_API_KEY
+
+  - model_name: starnet-router
+    litellm_params:
+      model: openrouter/openrouter/free
+      api_key: os.environ/OPENROUTER_API_KEY
+
+router_settings:
+  routing_strategy: simple-shuffle
+  num_retries: 1
+  allowed_fails: 1
+  cooldown_time: 60
