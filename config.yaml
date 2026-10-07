@@ -3,22 +3,20 @@ model_list:
     litellm_params:
       model: groq/openai/gpt-oss-20b
       api_key: os.environ/GROQ_API_KEY
-      max_tokens: 2000
 
   - model_name: starnet-router
     litellm_params:
       model: gemini/gemini-3.5-flash
       api_key: os.environ/GEMINI_API_KEY
-      max_tokens: 2000
 
   - model_name: starnet-router
     litellm_params:
       model: openrouter/openrouter/free
       api_key: os.environ/OPENROUTER_API_KEY
-      max_tokens: 2000
 
 litellm_settings:
   drop_params: true
+  callbacks: custom_callbacks.proxy_handler_instance
 
 router_settings:
   routing_strategy: simple-shuffle
