@@ -14,8 +14,13 @@ model_list:
       model: openrouter/openrouter/free
       api_key: os.environ/OPENROUTER_API_KEY
 
+litellm_settings:
+  drop_params: true
+
 router_settings:
   routing_strategy: simple-shuffle
+  enable_weighted_failover: true
+  max_fallbacks: 3
   num_retries: 1
   allowed_fails: 1
   cooldown_time: 60
